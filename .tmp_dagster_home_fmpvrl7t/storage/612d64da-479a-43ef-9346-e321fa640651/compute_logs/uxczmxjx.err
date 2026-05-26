@@ -1,0 +1,20 @@
+[32m2026-05-26 12:14:11 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 612d64da-479a-43ef-9346-e321fa640651 - 66806 - LOGS_CAPTURED - Started capturing logs in process (pid: 66806).
+[32m2026-05-26 12:14:11 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 612d64da-479a-43ef-9346-e321fa640651 - 66806 - garmin_activities_file - STEP_START - Started execution of step "garmin_activities_file".
+[32m2026-05-26 12:14:11 -0700[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - 612d64da-479a-43ef-9346-e321fa640651 - 66806 - garmin_activities_file - STEP_FAILURE - Execution of step "garmin_activities_file" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "garmin_activities_file"::
+
+FileNotFoundError: Garmin activity CSV not found at: data/raw/garmin_data.csv
+
+Stack Trace:
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_core/execution/plan/utils.py", line 57, in op_execution_error_boundary
+    yield
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_utils/__init__.py", line 392, in iterate_with_context
+    next_output = next(iterator)
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_core/execution/plan/compute_generator.py", line 137, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_core/execution/plan/compute_generator.py", line 117, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/dagster_project/src/defs/assets/activities.py", line 15, in garmin_activities_file
+    raise FileNotFoundError(
+[0m

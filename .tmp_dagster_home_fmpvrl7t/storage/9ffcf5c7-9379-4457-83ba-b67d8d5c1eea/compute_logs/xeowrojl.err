@@ -1,0 +1,28 @@
+[32m2026-05-26 12:46:43 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 9ffcf5c7-9379-4457-83ba-b67d8d5c1eea - 87494 - LOGS_CAPTURED - Started capturing logs in process (pid: 87494).
+[32m2026-05-26 12:46:43 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 9ffcf5c7-9379-4457-83ba-b67d8d5c1eea - 87494 - strava_activities - STEP_START - Started execution of step "strava_activities".
+[32m2026-05-26 12:46:43 -0700[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - 9ffcf5c7-9379-4457-83ba-b67d8d5c1eea - 87494 - strava_activities - STEP_FAILURE - Execution of step "strava_activities" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "strava_activities"::
+
+duckdb.duckdb.ConversionException: Conversion Error: Could not convert string '2,240' to DOUBLE
+LINE 9:             ROUND(CAST("Distance" AS DOUBLE) / 1.609344, 2) as distance_mi,
+            ROUND("Moving Time" / 60.0, 2)                  as moving_time_min,
+            ROUND("Average Speed" * 2.23694, 2)             as avg_speed_mph,
+            "Total Steps"                                    as total_steps
+          from '/Users/katelynvuong/Desktop/garmin-strava-dashboard/dagster_project/data/raw/strava_activities.csv'
+        );
+    ...
+                          ^
+
+Stack Trace:
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_core/execution/plan/utils.py", line 57, in op_execution_error_boundary
+    yield
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_utils/__init__.py", line 392, in iterate_with_context
+    next_output = next(iterator)
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_core/execution/plan/compute_generator.py", line 137, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_core/execution/plan/compute_generator.py", line 117, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/dagster_project/src/defs/assets/activities.py", line 85, in strava_activities
+    conn.execute(query)
+[0m

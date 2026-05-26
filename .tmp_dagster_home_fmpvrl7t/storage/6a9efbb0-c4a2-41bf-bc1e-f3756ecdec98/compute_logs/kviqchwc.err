@@ -1,0 +1,6 @@
+[32m2026-05-26 12:22:41 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 6a9efbb0-c4a2-41bf-bc1e-f3756ecdec98 - 72392 - LOGS_CAPTURED - Started capturing logs in process (pid: 72392).
+[32m2026-05-26 12:22:41 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 6a9efbb0-c4a2-41bf-bc1e-f3756ecdec98 - 72392 - garmin_activities_file - STEP_START - Started execution of step "garmin_activities_file".
+[32m2026-05-26 12:22:41 -0700[0m - dagster - [34mINFO[0m - __ASSET_JOB - 6a9efbb0-c4a2-41bf-bc1e-f3756ecdec98 - garmin_activities_file - Garmin activity file found at /Users/katelynvuong/Desktop/garmin-strava-dashboard/dagster_project/data/raw/garmin_data.csv
+[32m2026-05-26 12:22:41 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 6a9efbb0-c4a2-41bf-bc1e-f3756ecdec98 - 72392 - garmin_activities_file - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+[32m2026-05-26 12:22:41 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 6a9efbb0-c4a2-41bf-bc1e-f3756ecdec98 - 72392 - garmin_activities_file - ASSET_MATERIALIZATION - Materialized value garmin_activities_file.
+[32m2026-05-26 12:22:41 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 6a9efbb0-c4a2-41bf-bc1e-f3756ecdec98 - 72392 - garmin_activities_file - STEP_SUCCESS - Finished execution of step "garmin_activities_file" in 35ms.
