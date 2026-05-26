@@ -1,0 +1,29 @@
+[project]
+name = "garmin-strava-dashboard"
+version = "0.1.0"
+description = "Dagster project scaffold for Garmin and Strava data ingestion with DuckDB support."
+requires-python = ">=3.9,<3.15"
+dependencies = [
+  "dagster>=1.12.1,<1.13",
+  "dagster-webserver>=1.12.1,<1.13",
+  "dagster-cloud>=1.12.1,<1.13",
+  "dagster-dg-cli>=1.12.1,<1.13",
+  "click-aliases<1.0.6",
+  "dagster-duckdb>=0.28.1,<0.29",
+  "duckdb>=0.9.2,<1.0",
+  "pandas>=2.0,<3.0",
+  "requests>=2.31,<3.0",
+  "python-dotenv>=1.0,<2.0",
+]
+
+[tool.dg]
+directory_type = "project"
+
+[tool.dg.project]
+root_module = "dagster_project"
+defs_module = "dagster_project.src.defs"
+code_location_target_module = "dagster_project.src.definitions"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
