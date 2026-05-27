@@ -1,0 +1,5 @@
+[32m2026-05-26 18:23:16 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95466 - LOGS_CAPTURED - Started capturing logs in process (pid: 95466).
+[32m2026-05-26 18:23:16 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95466 - garmin_activities - STEP_START - Started execution of step "garmin_activities".
+[32m2026-05-26 18:23:16 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95466 - garmin_activities - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+[32m2026-05-26 18:23:16 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95466 - garmin_activities - ASSET_MATERIALIZATION - Materialized value garmin_activities.
+[32m2026-05-26 18:23:16 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95466 - garmin_activities - STEP_SUCCESS - Finished execution of step "garmin_activities" in 170ms.

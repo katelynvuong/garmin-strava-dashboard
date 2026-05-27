@@ -1,0 +1,5 @@
+[32m2026-05-26 18:23:20 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95587 - LOGS_CAPTURED - Started capturing logs in process (pid: 95587).
+[32m2026-05-26 18:23:20 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95587 - monthly_mileage - STEP_START - Started execution of step "monthly_mileage".
+[32m2026-05-26 18:23:21 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95587 - monthly_mileage - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+[32m2026-05-26 18:23:21 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95587 - monthly_mileage - ASSET_MATERIALIZATION - Materialized value monthly_mileage.
+[32m2026-05-26 18:23:21 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95587 - monthly_mileage - STEP_SUCCESS - Finished execution of step "monthly_mileage" in 601ms.

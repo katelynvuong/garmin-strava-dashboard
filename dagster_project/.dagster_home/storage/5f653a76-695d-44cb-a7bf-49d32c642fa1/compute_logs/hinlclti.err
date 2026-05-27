@@ -1,0 +1,5 @@
+[32m2026-05-26 18:23:18 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95478 - LOGS_CAPTURED - Started capturing logs in process (pid: 95478).
+[32m2026-05-26 18:23:18 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95478 - combined_activities - STEP_START - Started execution of step "combined_activities".
+[32m2026-05-26 18:23:19 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95478 - combined_activities - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+[32m2026-05-26 18:23:19 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95478 - combined_activities - ASSET_MATERIALIZATION - Materialized value combined_activities.
+[32m2026-05-26 18:23:19 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5f653a76-695d-44cb-a7bf-49d32c642fa1 - 95478 - combined_activities - STEP_SUCCESS - Finished execution of step "combined_activities" in 135ms.

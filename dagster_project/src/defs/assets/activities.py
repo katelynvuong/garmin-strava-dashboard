@@ -93,7 +93,7 @@ def strava_activities(context: dg.AssetExecutionContext, database: DuckDBResourc
 @dg.asset(
     deps=["garmin_activities", "strava_activities"]
 )
-def combined_activities(database: DuckDBResource) -> None:
+def combined_activities(context: dg.AssetExecutionContext, database: DuckDBResource) -> None:
     """
     Unified activity table merging Garmin and Strava.
 
