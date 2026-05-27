@@ -1,0 +1,72 @@
+[32m2026-05-26 17:52:56 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c52b5249-6f9d-4192-adb4-24f4a72414f5 - 73870 - LOGS_CAPTURED - Started capturing logs in process (pid: 73870).
+[32m2026-05-26 17:52:56 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c52b5249-6f9d-4192-adb4-24f4a72414f5 - 73870 - combined_activities - STEP_START - Started execution of step "combined_activities".
+[32m2026-05-26 17:52:56 -0700[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - c52b5249-6f9d-4192-adb4-24f4a72414f5 - 73870 - combined_activities - STEP_FAILURE - Execution of step "combined_activities" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "combined_activities"::
+
+duckdb.duckdb.ConversionException: Conversion Error: Could not convert string '--' to DOUBLE
+LINE 21:                         CAST(SPLIT_PART(moving_time, ':', 1) AS DOUBLE) * 60 +
+                        CAST(SPLIT_PART(moving_time, ':', 2) AS DOUBLE) +
+                        CAST(SPLIT_PART(moving_time, ':', 3) AS DOUBLE) / 60, 2)
+                END                                                     AS moving_time_min,
+                -- Garmin avg_speed is pace (MM:SS min/mile) -> convert to mph
+                CASE
+                    WHEN avg_speed IS NULL OR avg_speed IN ('--', '')
+                         OR POSITION(':' IN avg_speed) = 0 THEN NULL
+                    ELSE ROUND(60.0 / (
+                        CAST(SPLIT_PART(avg_speed, ':', 1) AS DOUBLE) +
+                        CAST(SPLIT_PART(avg_speed, ':', 2) AS DOUBLE) / 60
+                    ), 2)
+                END                                                     AS avg_speed_mph,
+                TRY_CAST(REPLACE(CAST(steps AS VARCHAR), ',', '')
+                    AS INTEGER)                                         AS steps
+            FROM garmin_activities
+        ),
+        strava_normalized AS (
+            SELECT
+                'strava'                                                AS source,
+                -- Pad single-digit days ("Apr 8,") -> "Apr 08," before parsing
+                strptime(
+                    regexp_replace(activity_date, '^([A-Za-z]+) ([0-9]),', '\1 0\2,'),
+                    '%b %d, %Y, %I:%M:%S %p'
+                )::DATE                                                 AS date,
+                activity_name                                           AS title,
+                activity_type,
+                distance_mi,
+                elapsed_time_min,
+                moving_time_min,
+                avg_speed_mph,
+                TRY_CAST(total_steps AS INTEGER)                        AS steps
+            FROM strava_activities
+        ),
+        garmin_dates AS (
+            SELECT DISTINCT date FROM garmin_normalized
+        )
+        SELECT source, date, title, activity_type,
+               distance_mi, elapsed_time_min, moving_time_min, avg_speed_mph, steps
+        FROM garmin_normalized
+
+        UNION ALL
+
+        -- Strava fills in only days with no Garmin data at all
+        SELECT source, date, title, activity_type,
+               distance_mi, elapsed_time_min, moving_time_min, avg_speed_mph, steps
+        FROM strava_normalized
+        WHERE date NOT IN (SELECT date FROM garmin_dates)
+
+        ORDER BY date;
+    ...
+                                 ^
+
+Stack Trace:
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_core/execution/plan/utils.py", line 57, in op_execution_error_boundary
+    yield
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_utils/__init__.py", line 392, in iterate_with_context
+    next_output = next(iterator)
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_core/execution/plan/compute_generator.py", line 137, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/.venv/lib/python3.9/site-packages/dagster/_core/execution/plan/compute_generator.py", line 117, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+  File "/Users/katelynvuong/Desktop/garmin-strava-dashboard/dagster_project/src/defs/assets/activities.py", line 177, in combined_activities
+    conn.execute(query)
+[0m

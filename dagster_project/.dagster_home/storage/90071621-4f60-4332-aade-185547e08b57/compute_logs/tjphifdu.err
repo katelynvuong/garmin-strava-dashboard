@@ -1,0 +1,5 @@
+[32m2026-05-26 12:56:43 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 90071621-4f60-4332-aade-185547e08b57 - 94896 - LOGS_CAPTURED - Started capturing logs in process (pid: 94896).
+[32m2026-05-26 12:56:43 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 90071621-4f60-4332-aade-185547e08b57 - 94896 - strava_activities - STEP_START - Started execution of step "strava_activities".
+[32m2026-05-26 12:56:43 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 90071621-4f60-4332-aade-185547e08b57 - 94896 - strava_activities - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+[32m2026-05-26 12:56:43 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 90071621-4f60-4332-aade-185547e08b57 - 94896 - strava_activities - ASSET_MATERIALIZATION - Materialized value strava_activities.
+[32m2026-05-26 12:56:43 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 90071621-4f60-4332-aade-185547e08b57 - 94896 - strava_activities - STEP_SUCCESS - Finished execution of step "strava_activities" in 227ms.

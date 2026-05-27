@@ -1,0 +1,6 @@
+[32m2026-05-26 17:52:53 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c52b5249-6f9d-4192-adb4-24f4a72414f5 - 73786 - LOGS_CAPTURED - Started capturing logs in process (pid: 73786).
+[32m2026-05-26 17:52:53 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c52b5249-6f9d-4192-adb4-24f4a72414f5 - 73786 - strava_activities_file - STEP_START - Started execution of step "strava_activities_file".
+[32m2026-05-26 17:52:53 -0700[0m - dagster - [34mINFO[0m - __ASSET_JOB - c52b5249-6f9d-4192-adb4-24f4a72414f5 - strava_activities_file - Strava activity file found at /Users/katelynvuong/Desktop/garmin-strava-dashboard/dagster_project/data/raw/strava_activities.csv
+[32m2026-05-26 17:52:53 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c52b5249-6f9d-4192-adb4-24f4a72414f5 - 73786 - strava_activities_file - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+[32m2026-05-26 17:52:53 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c52b5249-6f9d-4192-adb4-24f4a72414f5 - 73786 - strava_activities_file - ASSET_MATERIALIZATION - Materialized value strava_activities_file.
+[32m2026-05-26 17:52:53 -0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c52b5249-6f9d-4192-adb4-24f4a72414f5 - 73786 - strava_activities_file - STEP_SUCCESS - Finished execution of step "strava_activities_file" in 41ms.
